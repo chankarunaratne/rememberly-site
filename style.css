@@ -94,7 +94,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px; /* Space between the heading lines */
+    gap: 12px; /* Close, tight gap for a premium editorial feel */
 }
 
 h1 {
@@ -502,8 +502,10 @@ h1 {
     }
 
     .waitlist-input {
-        height: 52px;
+        height: 58px;
+        padding: 0 24px;
         text-align: center;
+        font-size: 1.05rem; /* Match button font size */
     }
 
     .waitlist-form .cta-button {
