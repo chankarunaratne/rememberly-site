@@ -562,12 +562,16 @@ h1 {
         transform: translate(-15%, 2%) rotate(-3deg);
     }
 
-    .hero-visual-stacked:hover .mock-back {
-        transform: translate(25%, -2%) rotate(10deg) scale(1.02);
+    .hero-visual-stacked:hover .mock-back,
+    .hero-visual-stacked:active .mock-back {
+        transform: translate(20%, 0%) rotate(8deg);
+        filter: blur(1px) drop-shadow(var(--shadow-app));
+        opacity: 0.8;
     }
 
-    .hero-visual-stacked:hover .mock-front {
-        transform: translate(-18%, 0) rotate(-5deg) scale(1.02);
+    .hero-visual-stacked:hover .mock-front,
+    .hero-visual-stacked:active .mock-front {
+        transform: translate(-15%, 2%) rotate(-3deg);
     }
 
     .footer {
