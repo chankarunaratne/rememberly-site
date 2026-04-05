@@ -1,0 +1,499 @@
+/* Color Palette Variables */
+:root {
+    /* Warm, sepia/cloud-like pastel reflecting a modern reading environment */
+    --bg-color: #F8F1EB; 
+    
+    /* Deep warm brown for high readability on sepia bg */
+    --text-primary: #332A24; 
+    
+    /* Slightly lighter text for secondary info */
+    --text-secondary: #746861;
+    
+    /* Anthropic-like orange for actions to stand out comfortably */
+    --accent-color: #DF6840; 
+    --accent-hover: #C55631;
+    
+    /* Design Tokens for Reusability */
+    --radius-lg: 32px;
+    --shadow-app: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Narrow Layout Wrapper 
+   We keep maximum width strictly small (640px) to enforce a single-column SaaS layout.
+   Everything is forced to center-align giving that premium, focused feel. */
+.content-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align all children including navbar */
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    padding: 48px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    height: 40px; /* Slightly smaller to fit nicely horizontally */
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+    color: var(--text-primary);
+}
+
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;  /* Space between text block and image */
+    padding-top: 10px;
+    padding-bottom: 80px;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px; /* Space between the heading lines */
+}
+
+h1 {
+    /* Newsreader gives a beautiful, editorial book feel */
+    font-family: 'Newsreader', serif; 
+    font-size: 2.6rem; /* Slightly reduced for the longer heading */
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    text-wrap: balance; /* Modern CSS for better heading wrap */
+}
+
+.subheading {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 480px; /* A bit narrower than the wrapper for better leading */
+    line-height: 1.5;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 999px; /* Pill shape for premium feel */
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 16px rgba(223, 104, 64, 0.25);
+    margin-top: 8px;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(223, 104, 64, 0.35);
+}
+
+.hero-waitlist-form {
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 999px; /* Pill shape */
+    padding: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); /* soft shadow */
+    width: 100%;
+    max-width: 460px; /* Slightly wider to easily accommodate both */
+    margin-top: 12px;
+    border: 1px solid #E0D5CC;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-waitlist-form:focus-within {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(223, 104, 64, 0.15);
+}
+
+.hero-waitlist-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0 20px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    min-width: 0;
+}
+
+.hero-waitlist-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+.hero-waitlist-form .cta-button {
+    margin-top: 0;
+    padding: 14px 32px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.hero-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.app-mockup {
+    width: 100%;
+    max-width: 340px; /* Appropriate size for an iPhone mockup on a narrow site */
+    height: auto;
+    /* Soft shadow to lift it off the sepia background cleanly */
+    filter: drop-shadow(var(--shadow-app));
+}
+
+/* How it works / Timeline Section */
+.how-it-works {
+    display: flex;
+    flex-direction: column;
+    padding: 64px 0 80px;
+    width: 100%;
+}
+
+.timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+/* Timeline connector for when we append more steps */
+.timeline-step::after {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(to bottom, var(--text-secondary) 0%, transparent 100%);
+    opacity: 0.15;
+    margin-top: 16px;
+    border-radius: 2px;
+}
+
+.timeline-step:last-child::after {
+    display: none;
+}
+
+.step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.step-title {
+    font-family: 'Newsreader', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.step-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 420px;
+    line-height: 1.5;
+}
+
+.step-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.step-visual-stacked {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.step-mockup {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    border-radius: var(--radius-lg);
+    filter: drop-shadow(var(--shadow-app));
+}
+
+/* Waitlist CTA Card */
+.waitlist-cta {
+    width: 100%;
+    padding: 0 0 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.waitlist-card {
+    background-color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 56px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow-app);
+    gap: 24px;
+    width: 100%;
+    max-width: 520px;
+}
+ 
+.waitlist-app-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px; /* classic ios app icon radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: -8px; /* pull title closer */
+}
+
+.waitlist-title {
+    font-family: 'Newsreader', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.social-proof {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-group {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 3px solid #FFFFFF;
+    background-size: cover;
+    background-position: center;
+    background-color: #E0D5CC;
+    margin-left: -12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* very soft depth */
+}
+
+.avatar:first-child {
+    margin-left: 0;
+}
+
+.social-proof-text {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.social-proof-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.waitlist-form {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 440px;
+    margin-top: 8px;
+}
+
+.waitlist-input {
+    flex: 1;
+    padding: 0 20px;
+    border-radius: 999px;
+    border: 1px solid #E0D5CC;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #F8F5F2;
+    min-width: 0; /* prevents input from blowing out flex bounds */
+}
+
+.waitlist-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(223, 104, 64, 0.15);
+}
+
+.waitlist-form .cta-button {
+    margin-top: 0;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    padding: 64px 0 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    border-top: 1px solid rgba(116, 104, 97, 0.15); /* very subtle borderline */
+}
+
+.footer-logo {
+    opacity: 0.85; /* soft appearance for footer */
+    filter: grayscale(100%);
+    transition: all 0.2s ease;
+}
+
+.footer-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.footer-text {
+    font-size: 0.95rem;
+    font-weight: 400; /* Regular weight */
+    color: var(--text-secondary);
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-item {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.footer-item:hover {
+    color: var(--text-primary);
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    margin-top: 16px;
+}
+
+/* Responsive tweaks for smaller mobile devices */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+        white-space: normal; /* Allow healthy wrapping on mobile width constraints */
+        text-wrap: balance;
+    }
+    
+    .navbar {
+        padding: 32px 0;
+    }
+
+    .step-title {
+        font-size: 1.8rem;
+    }
+
+    .step-description {
+        font-size: 1rem;
+        padding: 0 16px;
+    }
+
+    .waitlist-card {
+        padding: 40px 24px;
+        border-radius: 20px;
+    }
+    
+    .waitlist-title {
+        font-size: 1.8rem;
+    }
+
+    .waitlist-form {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .waitlist-input {
+        height: 52px;
+        text-align: center;
+    }
+
+    .waitlist-form .cta-button {
+        width: 100%;
+        text-align: center;
+        padding: 16px 0;
+    }
+
+    .hero-waitlist-form {
+        padding: 5px;
+        max-width: 100%;
+    }
+    
+    .hero-waitlist-input {
+        padding: 0 12px;
+        font-size: 0.95rem;
+    }
+    
+    .hero-waitlist-form .cta-button {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        width: auto;
+    }
+
+    .footer {
+        padding: 48px 0 32px;
+        gap: 20px;
+    }
+}
