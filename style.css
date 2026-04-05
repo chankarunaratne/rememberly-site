@@ -85,7 +85,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 48px;  /* Space between text block and image */
+    gap: 90px;  /* Increased space between text block and image */
     padding-top: 10px;
     padding-bottom: 80px;
 }
@@ -185,12 +185,48 @@ h1 {
     justify-content: center;
 }
 
+.hero-visual-stacked {
+    position: relative;
+    padding-bottom: 20px;
+}
+
 .app-mockup {
     width: 100%;
     max-width: 340px; /* Appropriate size for an iPhone mockup on a narrow site */
     height: auto;
     /* Soft shadow to lift it off the sepia background cleanly */
     filter: drop-shadow(var(--shadow-app));
+}
+
+.mock-back {
+    position: absolute;
+    z-index: 1;
+    width: 85%;
+    max-width: 300px;
+    transform: translate(25%, 0%) rotate(8deg);
+    opacity: 0.8;
+    filter: blur(1px) drop-shadow(var(--shadow-app));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease, opacity 0.4s ease;
+}
+
+.mock-front {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 320px;
+    transform: translate(-15%, 5%) rotate(-3deg);
+    filter: drop-shadow(0 25px 60px rgba(0,0,0,0.15));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hero-visual-stacked:hover .mock-back {
+    transform: translate(32%, -5%) rotate(10deg) scale(1.02);
+    filter: blur(0) drop-shadow(var(--shadow-app));
+    opacity: 1;
+}
+
+.hero-visual-stacked:hover .mock-front {
+    transform: translate(-18%, 2%) rotate(-5deg) scale(1.02);
 }
 
 /* How it works / Timeline Section */
@@ -490,6 +526,24 @@ h1 {
         padding: 12px 20px;
         font-size: 0.95rem;
         width: auto;
+    }
+
+    .mock-back {
+        max-width: 250px;
+        transform: translate(20%, 0%) rotate(8deg);
+    }
+    
+    .mock-front {
+        max-width: 270px;
+        transform: translate(-15%, 2%) rotate(-3deg);
+    }
+
+    .hero-visual-stacked:hover .mock-back {
+        transform: translate(25%, -2%) rotate(10deg) scale(1.02);
+    }
+
+    .hero-visual-stacked:hover .mock-front {
+        transform: translate(-18%, 0) rotate(-5deg) scale(1.02);
     }
 
     .footer {
