@@ -4,46 +4,107 @@
        LAYER 1: PRIMITIVES
     ========================================= */
     --color-white: #FFFFFF;
+    --color-black: #000000;
     
     /* Stone (Sepia/Warm Grey base) */
+    --color-stone-50:  #FAF6F3;
     --color-stone-100: #F8F1EB;
+    --color-stone-200: #EBE1D8;
     --color-stone-300: #E0D5CC;
+    --color-stone-400: #A89D95;
+    --color-stone-500: #8D8078;
     --color-stone-600: #746861;
+    --color-stone-700: #574F49;
+    --color-stone-800: #423B36;
     --color-stone-900: #332A24;
     
     /* Orange (Claude-like accent) */
+    --color-orange-50:  #FFF5F1;
+    --color-orange-100: #FCE8E1;
+    --color-orange-200: #F8CBB8;
+    --color-orange-300: #F5AA8B;
+    --color-orange-400: #EE8A62;
     --color-orange-500: #DF6840;
     --color-orange-600: #C55631;
+    --color-orange-700: #AA4525;
+    --color-orange-800: #8D3A20;
+    --color-orange-900: #753420;
+    
+    /* Red, Green, Blue, Yellow (For states) */
+    --color-red-100: #FDE8E8;
+    --color-red-500: #E02424; 
+    --color-green-100: #DEF7EC;
+    --color-green-500: #0E9F6E;
+    --color-blue-100: #E1EFFE;
+    --color-blue-500: #3F83F8;
+    --color-yellow-100: #FDF6B2;
+    --color-yellow-500: #E3A008;
 
     /* =========================================
        LAYER 2: SEMANTICS
     ========================================= */
+    --neutral-50: var(--color-stone-50);
     --neutral-100: var(--color-stone-100);
+    --neutral-200: var(--color-stone-200);
     --neutral-300: var(--color-stone-300);
+    --neutral-400: var(--color-stone-400);
     --neutral-600: var(--color-stone-600);
     --neutral-900: var(--color-stone-900);
 
+    --primary-100: var(--color-orange-100);
     --primary-500: var(--color-orange-500);
     --primary-600: var(--color-orange-600);
+    --primary-700: var(--color-orange-700);
+    
+    --danger-100: var(--color-red-100);
+    --danger-500: var(--color-red-500);
+    --success-100: var(--color-green-100);
+    --success-500: var(--color-green-500);
+    --info-100: var(--color-blue-100);
+    --info-500: var(--color-blue-500);
+    --warning-100: var(--color-yellow-100);
+    --warning-500: var(--color-yellow-500);
 
     /* =========================================
        LAYER 3: MAPPED / UI TOKENS
     ========================================= */
+    /* Backgrounds & Surfaces */
     --bg-canvas: var(--neutral-100); 
     --bg-surface: var(--color-white); 
+    --bg-surface-alt: var(--neutral-50);
+    --bg-overlay: rgba(51, 42, 36, 0.4); 
     
+    /* Text */
     --text-primary: var(--neutral-900);
     --text-secondary: var(--neutral-600);
+    --text-placeholder: var(--neutral-400);
     --text-on-primary: var(--color-white);
+    --text-danger: var(--danger-500);
     
+    /* Borders */
     --border-subtle: var(--neutral-300);
+    --border-danger: var(--danger-500);
     
+    /* Forms */
+    --bg-input: var(--neutral-50);
+    --border-input: var(--neutral-300);
+    --border-input-focus: var(--primary-500);
+    
+    /* Actions */
     --action-primary-default: var(--primary-500);
     --action-primary-hover: var(--primary-600);
+    --action-primary-pressed: var(--primary-700);
+    
+    --action-secondary-default: var(--neutral-200);
+    --action-secondary-hover: var(--neutral-300);
+    
+    --action-disabled-bg: var(--neutral-200);
+    --action-disabled-text: var(--neutral-400);
     
     /* Design Tokens for Reusability */
     --radius-lg: 32px;
-    --shadow-app: 0 20px 40px rgba(0, 0, 0, 0.1);
+    --shadow-app: 0 20px 40px rgba(51, 42, 36, 0.1); 
+    --shadow-subtle: 0 4px 8px rgba(51, 42, 36, 0.05);
 }
 
 * {

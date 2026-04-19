@@ -49,10 +49,14 @@ For the "Sepia/Reading Vibe", we use a warm grey/brown scale called **Stone** in
 /* ORANGE (Our Claude-like accent) */
 --color-orange-50:  #FFF5F1;
 --color-orange-100: #FCE8E1;
-/* ... 200, 300, 400 ... */
+--color-orange-200: #F8CBB8;
+--color-orange-300: #F5AA8B;
+--color-orange-400: #EE8A62;
 --color-orange-500: #DF6840; /* Current CTA Accent */
 --color-orange-600: #C55631; /* Current CTA Hover */
-/* ... 700, 800, 900 ... */
+--color-orange-700: #AA4525;
+--color-orange-800: #8D3A20;
+--color-orange-900: #753420;
 
 /* RED (For future error states) */
 --color-red-100: #FDE8E8;
@@ -65,6 +69,10 @@ For the "Sepia/Reading Vibe", we use a warm grey/brown scale called **Stone** in
 /* BLUE (For future info states) */
 --color-blue-100: #E1EFFE;
 --color-blue-500: #3F83F8;
+
+/* YELLOW (For future warning states) */
+--color-yellow-100: #FDF6B2;
+--color-yellow-500: #E3A008;
 ```
 
 ---
@@ -87,7 +95,9 @@ If your "Brand" color ever changes from Orange to Blue, this is the **ONLY** pla
 /* NEUTRAL SCALE (Derived from Stone) */
 --neutral-50: var(--color-stone-50);
 --neutral-100: var(--color-stone-100);
+--neutral-200: var(--color-stone-200);
 --neutral-300: var(--color-stone-300);
+--neutral-400: var(--color-stone-400);
 --neutral-600: var(--color-stone-600);
 --neutral-900: var(--color-stone-900);
 
@@ -95,6 +105,7 @@ If your "Brand" color ever changes from Orange to Blue, this is the **ONLY** pla
 --primary-100: var(--color-orange-100);
 --primary-500: var(--color-orange-500);
 --primary-600: var(--color-orange-600);
+--primary-700: var(--color-orange-700);
 
 /* SYSTEM SCALES (Success, Danger, Info, Warning) */
 --danger-100: var(--color-red-100);
@@ -105,6 +116,9 @@ If your "Brand" color ever changes from Orange to Blue, this is the **ONLY** pla
 
 --info-100: var(--color-blue-100);
 --info-500: var(--color-blue-500);
+
+--warning-100: var(--color-yellow-100);
+--warning-500: var(--color-yellow-500);
 ```
 
 ---
@@ -132,12 +146,24 @@ Why? Because if a user toggles Dark Mode, `var(--action-primary-default)` can be
 --bg-surface: var(--color-white); 
 /* A slightly darker surface for contrast */
 --bg-surface-alt: var(--neutral-50); 
+/* Dark overlay behind modals to dim the app */
+--bg-overlay: rgba(51, 42, 36, 0.4); 
+
+/* FORMS & INPUTS */
+/* Background color for form fields */
+--bg-input: var(--neutral-50);
+/* Default input border */
+--border-input: var(--neutral-300);
+/* Active/Focus ring for inputs */
+--border-input-focus: var(--primary-500);
 
 /* TEXT & TYPOGRAPHY */
 /* High contrast body text / Headings */
 --text-primary: var(--neutral-900);
 /* Muted text / Subheadings */
 --text-secondary: var(--neutral-600);
+/* Placeholder text inside inputs */
+--text-placeholder: var(--neutral-400);
 /* Text intended to sit on top of the primary action color (e.g. inner button text) */
 --text-on-primary: var(--color-white);
 /* Error text */
@@ -150,10 +176,18 @@ Why? Because if a user toggles Dark Mode, `var(--action-primary-default)` can be
 --border-danger: var(--danger-500);
 
 /* ACTIONS / BUTTONS */
-/* Primary button background */
+/* Primary Action */
 --action-primary-default: var(--primary-500);
-/* Primary button hover state */
 --action-primary-hover: var(--primary-600);
+--action-primary-pressed: var(--primary-700);
+
+/* Secondary Action */
+--action-secondary-default: var(--neutral-200);
+--action-secondary-hover: var(--neutral-300);
+
+/* Disabled State */
+--action-disabled-bg: var(--neutral-200);
+--action-disabled-text: var(--neutral-400);
 ```
 
 ### Summary of How the Engine Works:
@@ -166,3 +200,16 @@ If you have an `index.html` file with a button, the CSS resolution path looks li
 * It goes to Layer 1 and renders `#DF6840`
 
 This separation of concerns means your CSS logic and your brand colors are completely decoupled!
+
+---
+
+## 🚀 New Updates (App-Ready Architecture)
+
+We recently expanded this design system from a simple web landing page structure into a complete, scalable architecture ready for mobile apps (iOS/SwiftUI) and complex web applications. 
+
+### What was added:
+1. **Full 10-Step Scales:** Filled out the `50` to `900` math for both Stone (Neutral) and Orange (Primary) to ensure developers never have to guess literal hex codes for hover states or subtle backgrounds.
+2. **System Feedback Colors:** Introduced Red (Danger), Green (Success), Blue (Info), and Yellow (Warning) for comprehensive app status messages and badges.
+3. **Interactive States:** Expanded action tokens beyond `hover` to include `pressed` (vital for mobile touch feedback) and `disabled`.
+4. **Secondary Hierarchy:** Introduced `action-secondary` tokens for soft, non-primary buttons like "Cancel" or "Skip".
+5. **App Surfaces & Forms:** Added `--bg-overlay` utilizing a dark transparent Stone for modal scrims, and form-specific tokens (`--bg-input`, `--border-input`, `--text-placeholder`) for clean data entry interfaces.
