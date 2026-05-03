@@ -680,15 +680,11 @@ h1 {
 
 /* Contact Page */
 .contact-content {
-    align-items: center;
-    text-align: center;
     padding-top: 40px;
-}
-
-.contact-content h1 {
-    text-align: center;
 }
 
 .contact-cta-button {
     margin-top: 16px;
+    color: var(--text-on-primary);
+    align-self: flex-start;
 }
