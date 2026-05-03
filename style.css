@@ -677,3 +677,18 @@ h1 {
         font-size: 1rem;
     }
 }
+
+/* Contact Page */
+.contact-content {
+    align-items: center;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.contact-content h1 {
+    text-align: center;
+}
+
+.contact-cta-button {
+    margin-top: 16px;
+}
