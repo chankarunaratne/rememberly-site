@@ -683,8 +683,13 @@ h1 {
     padding-top: 40px;
 }
 
-.contact-cta-button {
+.legal-content .contact-cta-button {
     margin-top: 16px;
     color: var(--text-on-primary);
     align-self: flex-start;
+}
+
+.legal-content .contact-cta-button:hover {
+    color: var(--text-on-primary);
+    text-decoration: none;
 }
