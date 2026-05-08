@@ -229,50 +229,23 @@ h1 {
     box-shadow: 0 8px 24px rgba(223, 104, 64, 0.35);
 }
 
-.hero-waitlist-form {
-    display: flex;
-    align-items: center;
-    background-color: var(--bg-surface);
-    border-radius: 999px; /* Pill shape */
-    padding: 6px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05); /* soft shadow */
-    width: 100%;
-    max-width: 460px; /* Slightly wider to easily accommodate both */
+
+
+.appstore-link {
+    display: inline-block;
     margin-top: 12px;
-    border: 1px solid var(--border-subtle);
-    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.hero-waitlist-form:focus-within {
-    border-color: var(--action-primary-default);
-    box-shadow: 0 0 0 3px rgba(223, 104, 64, 0.15);
+.appstore-link:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
-.hero-waitlist-input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    padding: 0 20px;
-    font-size: 1rem;
-    font-family: inherit;
-    color: var(--text-primary);
-    min-width: 0;
-    -webkit-appearance: none;
-    appearance: none;
-}
-
-.hero-waitlist-input::placeholder {
-    color: var(--text-secondary);
-    opacity: 0.8;
-}
-
-.hero-waitlist-form .cta-button {
-    margin-top: 0;
-    padding: 14px 32px;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
+.appstore-badge {
+    height: 54px; /* Standard App Store badge height */
+    width: auto;
+    display: block;
 }
 
 .hero-visual {
@@ -548,21 +521,7 @@ h1 {
         font-size: 1.8rem;
     }
 
-    .hero-waitlist-form {
-        padding: 5px;
-        max-width: 100%;
-    }
-    
-    .hero-waitlist-input {
-        padding: 0 12px;
-        font-size: 0.95rem;
-    }
-    
-    .hero-waitlist-form .cta-button {
-        padding: 12px 20px;
-        font-size: 0.95rem;
-        width: auto;
-    }
+
 
     .mock-back {
         max-width: 200px;
