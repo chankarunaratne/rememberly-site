@@ -652,3 +652,54 @@ h1 {
     color: var(--text-on-primary);
     text-decoration: none;
 }
+
+/* Product Hunt Floating Embed */
+.ph-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999; /* Ensure it stays on top of other elements */
+    transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+    filter: drop-shadow(var(--shadow-subtle));
+    /* Force GPU acceleration for smooth Safari rendering */
+    transform: translateZ(0); 
+    -webkit-transform: translateZ(0);
+}
+
+.ph-float:hover {
+    transform: translateY(-2px) scale(1.02);
+    -webkit-transform: translateY(-2px) scale(1.02);
+    filter: drop-shadow(var(--shadow-app));
+}
+
+@media (max-width: 768px) {
+    .ph-float {
+        bottom: 20px;
+        right: 20px;
+        transform: scale(0.9);
+        transform-origin: bottom right;
+        -webkit-transform: scale(0.9);
+        -webkit-transform-origin: bottom right;
+    }
+    
+    .ph-float:hover {
+        transform: translateY(-2px) scale(0.92);
+        -webkit-transform: translateY(-2px) scale(0.92);
+    }
+}
+
+@media (max-width: 480px) {
+    .ph-float {
+        bottom: 16px;
+        right: 16px;
+        transform: scale(0.85);
+        transform-origin: bottom right;
+        -webkit-transform: scale(0.85);
+        -webkit-transform-origin: bottom right;
+    }
+    
+    .ph-float:hover {
+        transform: translateY(-2px) scale(0.87);
+        -webkit-transform: translateY(-2px) scale(0.87);
+    }
+}
