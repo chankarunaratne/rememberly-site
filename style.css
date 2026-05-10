@@ -400,42 +400,7 @@ h1 {
     letter-spacing: -0.01em;
 }
 
-.social-proof {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
 
-.avatar-group {
-    display: flex;
-    align-items: center;
-}
-
-.avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 3px solid var(--bg-surface);
-    background-size: cover;
-    background-position: center;
-    background-color: var(--border-subtle);
-    margin-left: -12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* very soft depth */
-}
-
-.avatar:first-child {
-    margin-left: 0;
-}
-
-.social-proof-text {
-    font-size: 1rem;
-    color: var(--text-secondary);
-}
-
-.social-proof-text strong {
-    color: var(--text-primary);
-    font-weight: 600;
-}
 
 /* Footer */
 .footer {
